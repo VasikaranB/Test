@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require("morgan");
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const cors = require('cors');
+
 
 
 // Create Express Server
@@ -14,6 +16,9 @@ const API_SERVICE_URL = "https://ipl-stats-sports-mechanic.s3.ap-south-1.amazona
 
 // Logging
 app.use(morgan('dev'));
+
+// CORS
+app.use(cors());
 
 // Info GET endpoint
 app.get('/info', (req, res, next) => {
